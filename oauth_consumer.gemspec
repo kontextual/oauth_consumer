@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.name = %q{oauth_consumer}
   s.summary = %q{OAuth 1 & 2 helpers for Rails 3+}
   s.description = %q{OAuth 1 & 2 and token management in Rails 3+}
-  s.homepage = %q{https://github.com/mgomes/oauth_consumer}
+  s.homepage = %q{https://github.com/kontextual/oauth_consumer}
   s.version = OauthConsumer::VERSION
-  s.authors = ["Mauricio Gomes", "Pelle Braendgaard"]
+  s.authors = ["Mauricio Gomes","Matthew Sedlacek","Pelle Braendgaard"]
   s.email = "mauricio@edge14.com"
 
   s.add_dependency("oauth", ["~> 0.4.4"])
