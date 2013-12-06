@@ -30,7 +30,7 @@ module Oauth
             consumer.get_request_token(:oauth_callback=>callback_url)
           end
 
-          def find_or_create_from_request_token(user,token,secret,oauth_verifier)
+          def find_or_create_from_request_token(user, token, secret, oauth_verifier)
             request_token=OAuth::RequestToken.new consumer,token,secret
             options={}
             options[:oauth_verifier]=oauth_verifier if oauth_verifier
@@ -58,9 +58,9 @@ module Oauth
               end
             end
 
-            token = if new_token then set_details(new_token, access_token) else set_details(access_token, token) end
+            token = new_token.present? ? set_details(new_token, access_token) : set_details(access_token, token)
 
-            token.save! if token.new_record? or token.changed?
+            token.save! if token.new_record? || token.changed?
 
             token
           end
