@@ -34,7 +34,11 @@ class Oauth2Token < ConsumerToken
 
   # Refreshes the access token to ensure access
   def ensure_access
-    self.class.find_or_create_from_access_token user, self, client.refresh!
+    begin
+      self.class.find_or_create_from_access_token(user, self, client.refresh!)
+    rescue
+      Rails.logger.info "Unable to refresh token."
+    end
   end
 
   # Returns the expiration date (expires_in, expires_at)

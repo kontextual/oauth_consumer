@@ -95,7 +95,7 @@ module Oauth
           # Main client for interfacing with remote service. Override this to use
           # preexisting library eg. Twitter gem.
           def client
-            @client||=OAuth::AccessToken.new(self.class.consumer, token, secret)
+            @client ||= OAuth::AccessToken.new(self.class.consumer, token, secret)
           end
 
           def simple_client
