@@ -14,6 +14,7 @@ class Oauth2Token < ConsumerToken
     options = { redirect_uri: callback_url }
     options[:scope] = credentials[:scope] if credentials[:scope].present?
     options[:access_type] = credentials[:access_type] if credentials[:access_type].present?
+    options[:approval_prompt] = credentials[:approval_prompt] if credentials[:approval_prompt].present?
     consumer.auth_code.authorize_url(options)
   end
 
